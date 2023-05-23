@@ -96,8 +96,11 @@
     (laps kronograf)
     (map #(lap-segments kronograf %))
     (apply map vector)
-    (map (fn [xs] {:label (:label (first xs))
-                   :sum (apply + (map :delta xs))}))))
+    (map (fn [xs]
+           (let [sum (apply + (map :delta xs))
+                 n (count xs)
+                 avg (/ sum n 1.0)]
+             {:label (:label (first xs)) :sum sum :avg avg})))))
 
 
 (defn create!

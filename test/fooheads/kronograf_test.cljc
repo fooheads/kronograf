@@ -40,8 +40,8 @@
     (set-ts 57)
     (krono/finish-lap! k)
 
-    (is (= [{:label ["1" "2"] :sum 7}
-            {:label ["2" "3"] :sum 9}]
+    (is (= [{:label ["1" "2"] :sum 7 :avg 3.5}
+            {:label ["2" "3"] :sum 9 :avg 4.5}]
            (krono/simple-stats @k)))))
 
 
